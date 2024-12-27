@@ -1,0 +1,11 @@
+<h2>Vehicles!!! You are at index, boy!</h2>
+
+<% @vehicles.each do |vehicle| %>
+    <p>
+        <%= vehicle.brand %> |
+        <%= vehicle.model %> |
+        <%= vehicle.year %> |
+        <%= vehicle.plate %> |
+        <%= vehicle.kind %> | 
+    </p>
+<% end %>
