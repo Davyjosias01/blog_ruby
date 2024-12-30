@@ -1,6 +1,9 @@
 class VehiclesController < ApplicationController
+  before_action :get_item, only: [ :show ]
+
+
   def index
-      @vehicles = Vehicle.all.order(year: :desc) # para crescente é: ":asc"
+    @vehicles = Vehicle.all.order(year: :desc) # para crescente é: ":asc"
   end
 
 
@@ -20,14 +23,13 @@ class VehiclesController < ApplicationController
   end
 
 
-  def show
-      @vehicle = Vehicle.find(params[:id])
+  @vehicles = Vehicle.all.order(year: :desc) # para crescente é: ":asc"
+  def vehicle_params
+    params.require(:vehicle).permit(:brand, :model, :year, :kind, :plate)
   end
 
 
-  private
-
-  def vehicle_params
-    params.require(:vehicle).permit(:brand, :model, :year, :kind, :plate)
+  def get_item
+    @vehicle = Vehicle.find(params[:id]) rescue Vehicle.new
   end
 end

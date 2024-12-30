@@ -1,6 +1,13 @@
 <h2>New Vehicle<h2>
 
-<%= form_with model: @vehicle, data: { turbo: false } do |f| %>
+<%= form_with model: @vehicles, data: { turbo: false } do |f| %>
+
+    <% if @vehicle.errors.any? %>
+        
+
+
+    <% end %>
+
 
     <p>
         <%= f.label :brand, "Brand: " %>
@@ -14,7 +21,7 @@
 
     <p>
         <%= f.label :year, "Year:" %>
-        <%= f.text_field :year %>    
+        <%= f.number_field :year %>    
     </p>
 
     <p>
@@ -24,11 +31,11 @@
 
     <p>
         <%= f.label :plate, "Plate:" %>
-        <%= f.text_field :plate %>    
+        <%= f.text_field :plate %>
     </p>
 
     <p>
-        <%= f.submit 'Create vehicle'%>
+        <%= f.submit %>
     </p>
 
 
